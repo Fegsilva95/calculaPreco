@@ -21,7 +21,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.064" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/precoProduto"
@@ -64,28 +64,48 @@
         app:layout_constraintTop_toBottomOf="@+id/checkBox">
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/radioButton1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Em dinheiro" />
 
         <RadioButton
-            android:id="@+id/radioButton4"
+            android:id="@+id/radioButton2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="1x no cartão" />
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/radioButton3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="3x no cartão" />
 
         <RadioButton
-            android:id="@+id/radioButton3"
+            android:id="@+id/radioButton4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="6x no cartão" />
     </RadioGroup>
+
+    <Button
+        android:id="@+id/calcular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calcular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/radioGroupPayment"
+        app:layout_constraintTop_toTopOf="@+id/radioGroupPayment" />
+
+    <TextView
+        android:id="@+id/precoFInal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="R$??,??"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="@+id/radioGroupPayment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/radioGroupPayment"
+        app:layout_constraintTop_toBottomOf="@+id/calcular" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
