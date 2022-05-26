@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
     private TextView precoFinal;
     private EditText precoProduto;
@@ -19,6 +22,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void calcular(View view){
-        precoFinal.setText(precoProduto.getText());
+        Double preco = Double.parseDouble(precoProduto.getText().toString());
+
+        Locale locale = new Locale("pt", "BR");
+
+        precoFinal.setText(NumberFormat.getCurrencyInstance(locale).format(preco));
     }
 }
