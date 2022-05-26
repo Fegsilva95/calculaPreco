@@ -24,7 +24,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/precoProduto"
+        android:id="@+id/productPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -38,30 +38,30 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/checkBoxGift"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Embrulhado para Presente"
-        app:layout_constraintStart_toStartOf="@+id/precoProduto"
-        app:layout_constraintTop_toBottomOf="@+id/precoProduto" />
+        app:layout_constraintStart_toStartOf="@+id/productPrice"
+        app:layout_constraintTop_toBottomOf="@+id/productPrice" />
 
     <CheckBox
-        android:id="@+id/checkBox2"
+        android:id="@+id/checkBoxExpress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Envio Expresso"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/checkBox"
-        app:layout_constraintTop_toTopOf="@+id/checkBox" />
+        app:layout_constraintStart_toEndOf="@+id/checkBoxGift"
+        app:layout_constraintTop_toTopOf="@+id/checkBoxGift" />
 
     <RadioGroup
         android:id="@+id/radioGroupPayment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="@+id/checkBox"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox">
+        app:layout_constraintStart_toStartOf="@+id/checkBoxGift"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxGift">
 
         <RadioButton
             android:id="@+id/radioButton1"
@@ -70,19 +70,19 @@
             android:text="Em dinheiro" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/radioButton1Card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="1x no cartão" />
 
         <RadioButton
-            android:id="@+id/radioButton3"
+            android:id="@+id/radioButton3Card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="3x no cartão" />
 
         <RadioButton
-            android:id="@+id/radioButton4"
+            android:id="@+id/radioButton6Card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="6x no cartão" />
@@ -92,14 +92,14 @@
         android:id="@+id/calcular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="calcular"
+        android:onClick="calculate"
         android:text="Calcular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/radioGroupPayment"
         app:layout_constraintTop_toTopOf="@+id/radioGroupPayment" />
 
     <TextView
-        android:id="@+id/precoFInal"
+        android:id="@+id/finalPriceTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="R$??,??"
