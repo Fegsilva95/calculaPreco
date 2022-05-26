@@ -28,10 +28,25 @@ public class MainActivity extends AppCompatActivity {
         checkBoxGift = findViewById(R.id.checkBoxGift);
         checkBoxExpress = findViewById(R.id.checkBoxExpress);
         radioGroupPayment = findViewById(R.id.radioGroupPayment);
+
+        View.OnClickListener listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calculate(v);
+            }
+        };
+        checkBoxGift.setOnClickListener(listener);
+        checkBoxExpress.setOnClickListener(listener);
+        radioGroupPayment.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                calculate(group);
+            }
+        });
+
     }
 
     public void calculate(View view){
-
         Double price = 0.0;
         try {
             price = Double.parseDouble(productPrice.getText().toString());
