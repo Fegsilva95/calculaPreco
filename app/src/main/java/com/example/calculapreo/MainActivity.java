@@ -31,7 +31,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void calculate(View view){
-        Double price = Double.parseDouble(productPrice.getText().toString());
+
+        Double price = 0.0;
+        try {
+            price = Double.parseDouble(productPrice.getText().toString());
+        }catch (Exception e){
+            productPrice.requestFocus();
+        }
         Double finalPrice = price;
 
         if(checkBoxGift.isChecked()){
