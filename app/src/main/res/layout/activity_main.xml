@@ -27,7 +27,7 @@
         android:id="@+id/productPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="Preço base do produto"
@@ -37,29 +37,47 @@
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <CheckBox
-        android:id="@+id/checkBoxGift"
+    <EditText
+        android:id="@+id/pesoInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Embrulhado para Presente"
-        app:layout_constraintStart_toStartOf="@+id/productPrice"
+        android:layout_marginStart="32dp"
+        android:ems="10"
+        android:hint="Peso em kg"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toTopOf="@+id/freteButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/productPrice" />
 
-    <CheckBox
-        android:id="@+id/checkBoxExpress"
+    <TextView
+        android:id="@+id/freteValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Envio Expresso"
+        android:text="R$00,00"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/checkBoxGift"
-        app:layout_constraintTop_toTopOf="@+id/checkBoxGift" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/freteButton" />
+
+    <TextView
+        android:id="@+id/finalPriceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="R$00,00"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="@+id/radioGroupPayment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toEndOf="@+id/radioGroupPayment"
+        app:layout_constraintTop_toBottomOf="@+id/calcular"
+        app:layout_constraintVertical_bias="0.12" />
 
     <RadioGroup
         android:id="@+id/radioGroupPayment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="@+id/checkBoxGift"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxGift">
 
@@ -90,24 +108,46 @@
     </RadioGroup>
 
     <Button
+        android:id="@+id/freteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:onClick="calculateFrete"
+        android:text="Calc. Frete"
+        app:layout_constraintEnd_toStartOf="@+id/freteValue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/productPrice" />
+
+    <Button
         android:id="@+id/calcular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
         android:onClick="calculate"
         android:text="Calcular"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.537"
         app:layout_constraintStart_toEndOf="@+id/radioGroupPayment"
         app:layout_constraintTop_toTopOf="@+id/radioGroupPayment" />
 
-    <TextView
-        android:id="@+id/finalPriceTextView"
+    <CheckBox
+        android:id="@+id/checkBoxExpress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="R$00,00"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="@+id/radioGroupPayment"
+        android:layout_marginTop="4dp"
+        android:text="Envio Expresso"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/radioGroupPayment"
-        app:layout_constraintTop_toBottomOf="@+id/calcular" />
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toEndOf="@+id/checkBoxGift"
+        app:layout_constraintTop_toTopOf="@+id/checkBoxGift" />
+
+    <CheckBox
+        android:id="@+id/checkBoxGift"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="184dp"
+        android:text="Embrulhado para Presente"
+        app:layout_constraintStart_toStartOf="@+id/productPrice"
+        app:layout_constraintTop_toBottomOf="@+id/productPrice" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

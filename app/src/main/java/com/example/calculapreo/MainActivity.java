@@ -14,7 +14,9 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     private TextView finalPriceTextView;
+    private TextView freteValueTextView;
     private EditText productPrice;
+    private EditText pesoTextView;
     private CheckBox checkBoxGift;
     private CheckBox checkBoxExpress;
     private RadioGroup radioGroupPayment;
@@ -46,6 +48,26 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void calculateFrete(View view){
+        freteValueTextView = findViewById(R.id.freteValue);
+        pesoTextView = findViewById(R.id.pesoInput);
+
+        Double peso = 0.0;
+        peso = Double.parseDouble(pesoTextView.getText().toString());
+
+        Locale locale = new Locale("pt", "BR");
+        freteValueTextView.setText(NumberFormat.getCurrencyInstance(locale).format(10+(4*peso)));
+    }
+
+    private double calculateFreteToFinalValue(){
+        freteValueTextView = findViewById(R.id.freteValue);
+        pesoTextView = findViewById(R.id.pesoInput);
+
+        Double peso = 0.0;
+        peso = Double.parseDouble(pesoTextView.getText().toString());
+        return 10+(4*peso);
+    }
+
     public void calculate(View view){
         Double price = 0.0;
         try {
@@ -75,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         Locale locale = new Locale("pt", "BR");
+        finalPrice += calculateFreteToFinalValue();
 
         finalPriceTextView.setText(NumberFormat.getCurrencyInstance(locale).format(finalPrice));
     }
